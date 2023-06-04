@@ -261,7 +261,7 @@
                     <div class="subheading mb-5">
                         <a href="assets/documents/Mediodia, Patrick - Portfolio.pdf" target="_blank">View Practicum Portfolio</a>
                     </div>
-                    <h3>Overview of the Practicum Engagement</h3>
+                    <h3 class="mt-2">Overview of the Practicum Engagement</h3>
                     <h4 class="mt-4">Company Background</h4>
                     <div class="image-container" style="display: flex; justify-content: center;">
                         <img src="assets/img/overview/iRipple.png" class="img-fluid mt-1 mb-1" style="max-width: 300px;">
@@ -305,9 +305,7 @@
             <!-- Presentation of Output -->
             <section class="resume-section" id="output">
                 <div class="resume-section-content">
-                    <h2 class="mb-5" style=" display:block; margin:auto;">Practicum</h2>
                     <h3 class="mt-4">Presentation of Output</h3>
-
                     <h4 class="mt-3">Migration of VB6 Report Modules to C#</h4>
                     <p>
                         The output of this task is to recreate two (2) Barter 8 report modules currently written in VB6 into C# and document the process of creation. This is because the supervisor of the student wants to create all future Bater8 modules to be written in C#. The document output will then be used by developers in the future as a guide or sample when writing new functionality in C#. Shown below are the two report modules recreated (see Figures 4 & 5). The POS Sales Journal Summary is the simpler form done as practice while the POS Collections Report is the more complex form with more filters and functionality.
@@ -350,6 +348,7 @@
                         <img src="assets/img/migration_modules/migration_doc_2.png" class="img-fluid mt-1 mb-1" style="max-width: 300px; width: 100%;">
                     </div>
 
+
                     <h4 class="mt-5">Point-of-Sales Monitoring Module</h4>
                     <p>
                         Next, the student was tasked to create new modules that will help with the current problems of the system. First, he created a module to monitor the point-of-Sales terminals. This was created in order for a supervisor to be able to monitor terminals in a single view and check if there are problems so that it can quickly be resolved.
@@ -357,6 +356,9 @@
                     <p>
                         Figure 10 shows the monitoring dashboard. Its default behavior upon opening is showing only the online POS terminals, it also has options of showing the offline terminals under the options tab. Terminals are asynchronously pinged through the LAN connection using their terminal names, and if they reply, it means they are online. Terminal statuses are refreshed every 60 seconds (1 minute) with a timer shown at the top right. A user is also able to manually refresh the status of the terminals in the options tab without waiting for the automatic refresh timer.
                     </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/monitoring/dashboard.png" class="img-fluid mt-1 mb-1" style="max-width: 600px; width: 100%; border: 1px solid #000000;">
+                    </div>
                     <p>
                         The monitoring dashboard also includes data such as the cashier logged in, the number of unsent transactions which means the difference between the count of the records found in the branch server versus in the local database of the terminal, and a summary of the sales, returns, and voided transactions of a specific terminal.
                     </p>
@@ -366,11 +368,70 @@
                     <p>
                         The student thought that since there is a summary of transactions, there should be a way of viewing all the transactions of a specific terminal for that day. This functionality also includes searching records by transaction number, transaction type, status, cashier name, or amount.
                     </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/monitoring/view_transactions.png" class="img-fluid mt-1 mb-1" style="max-width: 600px; width: 100%; border: 1px solid #000000;">
+                    </div>
                     <p>
                         The functionality of the POS monitoring module also includes authorizing requests that need supervisor credentials. This allows supervisors to give authorization without having to go to the actual terminal. This works by the terminal sending a request to the branch server, the branch server which the monitoring module is running on in the backend is then notified of this request. The supervisor is notified by highlighting the terminal color yellow and playing a sound. To authorize the request, the user must click on the terminal and enter their supervisor's user code and password. These credentials are then sent to the terminal to be processed and used to authorize the request (see Figure 12).
                     </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/monitoring/authorize.png" class="img-fluid mt-1 mb-1" style="max-width: 600px; width: 100%; border: 1px solid #000000;">
+                    </div>
                     <p>
                         After the development of the monitoring module, the student created its technical documentation. Figure 13 shows a sample of the technical documentation created by the student. It includes information such as an overview of the module functionality, the tools used, setting up the project, the project structure, as well as a specific discussion on how each part of the functionality was created namely the data models, getting and pinging the terminals, refreshing the terminal status, getting transaction data, and the authorization of the supervisor and their credentials.
+                    </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/monitoring/monitoring_doc1.png" class="img-fluid mt-1 mb-1" style="max-width: 300px; width: 100%;">
+                        <img src="assets/img/monitoring/monitoring_doc2.png" class="img-fluid mt-1 mb-1" style="max-width: 300px; width: 100%;">
+                    </div>
+
+
+                    <h4 class="mt-5">Point-of-Sales Auto Updater Module</h4>
+                    <p>
+                        Currently, updates on Barter 8 point-of-sales terminals are manually installed by accessing the terminals one by one remotely and changing the program files and folders. According to my supervisor, this can take around 5 to 10 minutes per terminal depending on the size of the update. In a hypothetical situation of 10 sites with 10 terminals, the software support team would need to remotely access 100 terminals per software update. Although this is a legacy system and updates are not that often, this manual operation is tedious and is prone to human errors.
+                    </p>
+                    <p>
+                        The point-of-sales auto-updater module developed by the student’s main functionality is to check if there are software updates from the branch server. If updates are present, it then automatically updates its files and folders, while also creating backups of the overwritten files. These backups can then be used as restore or rollback points as needed. The point-of-sales auto-updater module developed by the student removes the need for manually updating the terminals one by one.
+                    </p>
+                    <p>
+                        Going back to the hypothetical situation of 10 sites with 10 terminals each, the software support team would only need to remotely access the 10 branch servers and upload the updated files there. This will then be automatically installed by the auto-updater module on the startup of the terminals. The point-of-sales terminal updates are put in the POS_Updates folder on the Branch Server. The POS Auto Updater on the terminals checks the POS_Updates folder on the branch server. The name of the folder is used as the backup name or title as a way to descriptively identify updates (see Figure 14).
+                    </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/auto_updater/update_path.png" class="img-fluid mt-1 mb-1" style="max-width: 600px; width: 100%; border: 1px solid #000000;">
+                    </div>
+                    <p>
+                        Show below is the point-of-sales auto-updater module updating the files of the local terminal from the branch server (see Figure 15). This is added as a task on the Windows task scheduler on user login. The user interface was created to match the design of the legacy point-of-sales system the module was to be integrated into.
+                    </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/auto_updater/install_update.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
+                    </div>
+                    <p>
+                        After updates have been checked and installed, the Barter point-of-sales terminal program is run. The Barter POS auto-updater module is then hidden in the system tray (see Figure 16). This allows the program to be run in the background. In order to show the program, the user needs to double-click on the icon found in the system tray.
+                    </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/auto_updater/system_tray.png" class="img-fluid mt-1 mb-1" style="max-width: 200px; width: 100%; border: 1px solid #000000;">
+                    </div>
+                    <p>
+                        The Barter POS auto-updater module also has functionality for restoring or rolling back backups. Backups can be found in the POS_Update_Backups folder on the terminal and are stored in a zip file. Backups older than the AutoCleanupDaysLimit field stored on the terminal which in this case was set to 90 days were deleted to save on space. Figure 17 shows the restoration of the backup user interface. It shows a table of the name of the backup which was taken from the name of the update folder as well as the date and time the update was installed.
+                    </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/auto_updater/restore_backup.png" class="img-fluid mt-1 mb-1" style="max-width: 300px; width: 100%; border: 1px solid #000000;">
+                    </div>
+                    <p>
+                        To restore a backup, double-click on your desired backup to roll back. A prompt will then show confirming the decision of the user to restore the backup (see Figure 18).
+                    </p>
+                    <div class="image-container mb-3" style="display: flex; justify-content: center;">
+                        <img src="assets/img/auto_updater/restore_complete.png" class="img-fluid mt-1 mb-1" style="max-width: 300px; width: 100%; border: 1px solid #000000;">
+                    </div>
+                    <p>
+                        If the user selects yes, a prompt for supervisor credentials will be shown, this is because only supervisors are able to roll back updates on the terminals as needed (see Figure 19).
+                    </p>
+                    <p>
+                        If correct supervisor credentials have been entered to authorize the rollback of an update, it will start the operation. The figure down below shows the prompt that will display once the restoration of a backup is complete (see Figure 20).
+
+                    </p>
+                    <p>
+                        After the development of the module, the student was asked to create a user manual. As of the moment of writing this report June 2, 2023, the supervisor of the student plans to code review and pass the program to be checked by QA in the hopes of being used in production. The user manual highlights the functionality, installation process on the terminal, and how to load the updates on the branch server to be checked by the auto-updater module installed on the terminals (see Figure 21).
                     </p>
                 </div>
             </section>
@@ -379,7 +440,6 @@
             <!-- Synthesis -->
             <section class="resume-section" id="synthesis">
                 <div class="resume-section-content">
-                    <h2 class="mb-5" style=" display:block; margin:auto;">Practicum</h2>
                     <h3 class="mt-4">Synthesis of the Practicum Engagement</h3>
                     <h4 class="mt-3">Learnings</h4>
                     <p>
