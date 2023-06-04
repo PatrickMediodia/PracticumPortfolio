@@ -403,7 +403,7 @@
                         Show below is the point-of-sales auto-updater module updating the files of the local terminal from the branch server (see Figure 15). This is added as a task on the Windows task scheduler on user login. The user interface was created to match the design of the legacy point-of-sales system the module was to be integrated into.
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_updater/install_update.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_updater/install_update.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                     <p>
                         After updates have been checked and installed, the Barter point-of-sales terminal program is run. The Barter POS auto-updater module is then hidden in the system tray (see Figure 16). This allows the program to be run in the background. In order to show the program, the user needs to double-click on the icon found in the system tray.
@@ -415,31 +415,31 @@
                         The Barter POS auto-updater module also has functionality for restoring or rolling back backups. Backups can be found in the POS_Update_Backups folder on the terminal and are stored in a zip file. Backups older than the AutoCleanupDaysLimit field stored on the terminal which in this case was set to 90 days were deleted to save on space. Figure 17 shows the restoration of the backup user interface. It shows a table of the name of the backup which was taken from the name of the update folder as well as the date and time the update was installed.
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_updater/restore_backup.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_updater/restore_backup.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                     <p>
                         To restore a backup, double-click on your desired backup to roll back. A prompt will then show confirming the decision of the user to restore the backup (see Figure 18).
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_updater/restore_confirmation.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_updater/restore_confirmation.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                     <p>
                         If the user selects yes, a prompt for supervisor credentials will be shown, this is because only supervisors are able to roll back updates on the terminals as needed (see Figure 19).
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_updater/credentials.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_updater/credentials.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                     <p>
                         If correct supervisor credentials have been entered to authorize the rollback of an update, it will start the operation. The figure down below shows the prompt that will display once the restoration of a backup is complete (see Figure 20).
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_updater/restore_complete.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_updater/restore_complete.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                     <p>
                         After the development of the module, the student was asked to create a user manual. As of the moment of writing this report June 2, 2023, the supervisor of the student plans to code review and pass the program to be checked by QA in the hopes of being used in production. The user manual highlights the functionality, installation process on the terminal, and how to load the updates on the branch server to be checked by the auto-updater module installed on the terminals (see Figure 21).
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_updater/user_manual.png" class="img-fluid mt-1 mb-1" style="max-width: 600px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_updater/user_manual.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
                     </div>
 
 
@@ -457,25 +457,25 @@
                         The module developed by the student remedies this by checking for transactions that are present on the server that is not on the local database of the terminals. It then inserts these transaction records to rectify the lost data. Figure 23 below shows the initial screen of the module. It accepts from and to date ranges to filter and narrow down the records to be checked and synchronized by the module.
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_sync/initial_page.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_sync/initial_page.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                     <p>
                         Figure 24 shows what happens when the check records button is been pressed. It will first show a summary of the number of records in the database of the local point-of-sales terminal and the branch server.
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_sync/record_count.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_sync/record_count.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                     <p>
                         If there are more server records than local point-of-sales terminal records, the program will prompt the user if they want to transfer the records not found on the local terminal that are on the server. The message also reminds the user that this action is permanent and cannot be undone (see Figure 25).
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_sync/transfer_records.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_sync/transfer_records.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                     <p>
                         Once the operation is complete, a message box will show that the program has finished transferring the records found on the server into the terminal (see Figure 27).
                     </p>
                     <div class="image-container mb-3" style="display: flex; justify-content: center;">
-                        <img src="assets/img/auto_sync/transafer_done.png" class="img-fluid mt-1 mb-1" style="max-width: 500px; width: 100%; border: 1px solid #000000;">
+                        <img src="assets/img/auto_sync/transafer_done.png" class="img-fluid mt-1 mb-1" style="max-width: 400px; width: 100%; border: 1px solid #000000;">
                     </div>
                 </div>
             </section>
